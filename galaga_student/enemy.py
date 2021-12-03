@@ -3,6 +3,7 @@ import pygame as pg
 
 # Complete me! - FIXME
 class Enemy(pg.sprite.Sprite):
+    direction = 0
     def __init__(self, location):
         super(Enemy, self).__init__()
         # TODO
@@ -15,10 +16,13 @@ class Enemy(pg.sprite.Sprite):
         screen.blit(self.image, self.rect)
 
     def update(self, delta):
-        pass
-
-    def up(self, delta):
-        pass
-
-    def down(self, delta):
-        pass
+        if (self.direction == 0):
+            if (self.rect.centery > 0):
+                self.rect.centery -= 1
+            else:
+                self.direction = 1
+        else:
+            if (self.rect.centery < 768):
+                self.rect.centery += 1
+            else:
+                self.direction = 0

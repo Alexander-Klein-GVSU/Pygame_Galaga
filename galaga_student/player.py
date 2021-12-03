@@ -21,9 +21,6 @@ class Player(pg.sprite.Sprite):
     def draw(self, screen):
         screen.blit(self.image, self.rect)
 
-    def shoot(self, delta):
-        pass
-
     def up(self, delta):
         if (self.rect.centery > 0):
             if (self.rect.centery >= 5):
