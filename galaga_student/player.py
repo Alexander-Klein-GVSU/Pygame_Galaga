@@ -1,5 +1,5 @@
 import os
-import galaga_student.pygame as pg
+import pygame as pg
 
 # Create a Player class that is a subclass of pygame.sprite.Sprite
 # Load an image as such:
@@ -12,6 +12,7 @@ class Player(pg.sprite.Sprite):
     def __init__(self):
         super(Player, self).__init__()
         # TODO
+        self.image = pg.image.load(os.path.join('assets', 'Ship6.png')).convert_alpha()
 
     def draw(self, screen):
         screen.blit(self.image, self.rect)

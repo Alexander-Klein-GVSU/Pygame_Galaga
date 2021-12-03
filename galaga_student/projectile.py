@@ -1,5 +1,5 @@
 import os
-import galaga_student.pygame as pg
+import pygame as pg
 
 class Projectile(pg.sprite.Sprite):
     def __init__(self, shipLocation, enemies):

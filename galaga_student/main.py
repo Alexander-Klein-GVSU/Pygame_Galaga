@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import galaga_student.pygame as pg
+import pygame as pg
 import pygame.freetype
 import os
 from enemy import Enemy
@@ -42,6 +42,8 @@ def main():
     # Frame limiting
     fps = 60
     clock = pg.time.Clock()
+
+
     clock.tick(fps)
     # Setup score variable
     score = 0
