@@ -14,18 +14,26 @@ class Player(pg.sprite.Sprite):
         # FIXME
         self.image = pg.image.load(os.path.join('galaga_student/assets', 'Ship6.png')).convert_alpha()
         self.rect = self.image.get_rect()
-        self.rect.centerx = 30
+        self.rect.centerx = 65
         self.rect.centery = 384
         
 
     def draw(self, screen):
         screen.blit(self.image, self.rect)
 
-    def update(self, delta):
+    def shoot(self, delta):
         pass
 
     def up(self, delta):
-        pass
+        if (self.rect.centery > 0):
+            if (self.rect.centery >= 5):
+                self.rect.centery -= 5
+            else:
+                self.rect.centery = 0
 
     def down(self, delta):
-        pass
+        if (self.rect.centery < 768):
+            if (self.rect.centery <= 763):
+                self.rect.centery += 5
+            else:
+                self.rect.centery = 768

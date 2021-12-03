@@ -32,7 +32,7 @@ def main():
     # Start sound - Load background music and start it
     # playing on a loop - FIXME
     mixer.init()
-    mixer.music.load(os.path.join('galaga_student/assets', 'cpu-talk.wav')) # TODO: find song
+    mixer.music.load(os.path.join('galaga_student/assets', 'cpu-talk.wav'))
     mixer.music.play(-1)
 
     # Get font setup
