@@ -1,17 +1,12 @@
 import os
 import pygame as pg
 
-# Complete me! - TODO
-class Enemy(pg.sprite.Sprite):
-    def __init__(self):
-        super(Enemy, self).__init__()
-        self.image = pg.image.load(os.path.join('assets', 'Ship3.png')).convert_alpha()
-
 # Complete me! - FIXME
 class Enemy(pg.sprite.Sprite):
-    def __init__(self):
+    def __init__(self, location):
         super(Enemy, self).__init__()
         # TODO
+        self.image = pg.image.load(os.path.join('galaga_student/assets', 'Ship3.png')).convert_alpha()
 
     def draw(self, screen):
         screen.blit(self.image, self.rect)

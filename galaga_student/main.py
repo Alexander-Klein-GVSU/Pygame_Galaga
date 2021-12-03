@@ -8,6 +8,7 @@ from player import Player
 from projectile import Projectile
 from pygame.locals import *
 from pygame import mixer
+from pygame.sprite import Group
 
 def main():
     # Startup pygame
@@ -20,8 +21,8 @@ def main():
     player = Player
 
     # Create enemy and projectile Groups - FIXME
-    enemies = pg.Group()
-    projectiles = pg.Group()
+    enemies = pg.sprite.Group()
+    projectiles = pg.sprite.Group()
 
     for i in range(500, 1000, 75):
         for j in range(100, 600, 50):
@@ -31,8 +32,8 @@ def main():
     # Start sound - Load background music and start it
     # playing on a loop - FIXME
     mixer.init()
-    mixer.music.load() # TODO: find song
-    mixer.music.play()
+    mixer.music.load(os.path.join('galaga_student/assets', 'cpu-talk.wav')) # TODO: find song
+    mixer.music.play(-1)
 
     # Get font setup
     pg.freetype.init()
