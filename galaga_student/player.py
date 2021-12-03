@@ -12,8 +12,11 @@ class Player(pg.sprite.Sprite):
     def __init__(self):
         super(Player, self).__init__()
         # FIXME
-        self.image = pg.image.load(os.path.join('assets', 'Ship6.png')).convert_alpha()
+        self.image = pg.image.load(os.path.join('galaga_student/assets', 'Ship6.png')).convert_alpha()
         self.rect = self.image.get_rect()
+        self.rect.centerx = 30
+        self.rect.centery = 384
+        
 
     def draw(self, screen):
         screen.blit(self.image, self.rect)

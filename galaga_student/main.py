@@ -18,7 +18,7 @@ def main():
     screen = pg.display.set_mode([1024, 768])
     
     # Create a player - FIXME
-    player = Player
+    player = Player()
 
     # Create enemy and projectile Groups - FIXME
     enemies = pg.sprite.Group()
@@ -41,7 +41,7 @@ def main():
     font_size = 64
     font = pg.freetype.Font(font_path, font_size)
     # Make a tuple for FONTCOLOR - FIXME
-    FONTCOLOR = [56, 69, 159]
+    FONTCOLOR = (56, 69, 159)
     # Startup the main game loop
     running = True
     # Keep track of time
