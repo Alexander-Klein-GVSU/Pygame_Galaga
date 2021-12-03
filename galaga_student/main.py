@@ -7,6 +7,7 @@ from enemy import Enemy
 from player import Player
 from projectile import Projectile
 from pygame.locals import *
+from pygame import mixer
 
 def main():
     # Startup pygame
@@ -15,9 +16,12 @@ def main():
     # Get a screen object
     screen = pg.display.set_mode([1024, 768])
     
-    # Create a player - TODO
+    # Create a player - FIXME
+    player = Player
 
-    # Create enemy and projectile Groups - TODO
+    # Create enemy and projectile Groups - FIXME
+    enemies = pg.Group()
+    projectiles = pg.Group()
 
     for i in range(500, 1000, 75):
         for j in range(100, 600, 50):
@@ -25,14 +29,18 @@ def main():
             enemies.add(enemy)
 
     # Start sound - Load background music and start it
-    # playing on a loop - TODO
+    # playing on a loop - FIXME
+    mixer.init()
+    mixer.music.load() # TODO: find song
+    mixer.music.play()
 
     # Get font setup
     pg.freetype.init()
     font_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "./assets", "PermanentMarker-Regular.ttf")
     font_size = 64
     font = pg.freetype.Font(font_path, font_size)
-    # Make a tuple for FONTCOLOR - TODO
+    # Make a tuple for FONTCOLOR - FIXME
+    FONTCOLOR = [56, 69, 159]
     # Startup the main game loop
     running = True
     # Keep track of time
