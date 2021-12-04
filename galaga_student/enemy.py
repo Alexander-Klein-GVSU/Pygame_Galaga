@@ -11,6 +11,7 @@ class Enemy(pg.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.centerx = location[0]
         self.rect.centery = location[1]
+        
 
     def draw(self, screen):
         screen.blit(self.image, self.rect)
@@ -20,9 +21,14 @@ class Enemy(pg.sprite.Sprite):
             if (self.rect.centery > 0):
                 self.rect.centery -= 1
             else:
-                self.direction = 1
+                return 1
         else:
             if (self.rect.centery < 768):
                 self.rect.centery += 1
             else:
-                self.direction = 0
+                return 2
+        return 0
+
+    def setDirection(self, dir):
+        self.direction = dir
+        
