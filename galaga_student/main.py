@@ -11,6 +11,9 @@ from pygame import mixer
 from pygame.sprite import Group
 import random
 
+# Name: Jason Truskowski and Alexander Klein
+# Date: 12/3/21
+# Assignment: Pygame
 
 def main():
     # Startup pygame
