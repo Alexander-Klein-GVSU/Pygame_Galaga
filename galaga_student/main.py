@@ -79,6 +79,7 @@ def main():
             if event.type == pg.USEREVENT + 1:
                 score += 100
 
+        # Gets and handles player input.
         keys = pg.key.get_pressed()
 
         if keys[K_s]:
@@ -96,6 +97,7 @@ def main():
         bounce = 0
         shooter = -1
         iter = 0
+        # Gets shooting enemy if enemy is allowed to shoot.
         if (eShotDelta) >= 1.0:
             shooter = random.randint(0, len(enemies))
             eShotDelta = 0.0
@@ -109,11 +111,13 @@ def main():
                     else:
                         en.setDirection(0)
                 break
+            # Checks if current shooter is enemy shooter.
             if (shooter == iter):
                 projectile = Projectile(enemy.rect, players)
                 projectiles.add(projectile)
             iter += 1
 
+        # Checks if entity has been hit.
         for projectile in projectiles:
             hit, collision = projectile.update(delta)
             if (hit == 1):
@@ -121,6 +125,7 @@ def main():
             elif (hit == 0):
                 break
         
+        # Checks for end of game.
         if (hit == 0 or (len(enemies) == 0)):
             break
 
@@ -142,10 +147,12 @@ def main():
     # Game Over Screens
     screen.fill((0, 0, 0))
     if (hit == 0):
+        # Player Lost.
         font.render_to(screen, (190, 400), "ur bad lmao", (255, 0, 0), None, size=100)
         mixer.music.load(os.path.join('galaga_student/assets', 'lose.wav'))
         mixer.music.play()
     else:
+        # Player won (loud sound warning).
         font.render_to(screen, (100, 400), "conglat your'e winer", (255, 215, 0), None, size=80)
         score += 100
         mixer.music.load(os.path.join('galaga_student/assets', 'poggers.wav'))

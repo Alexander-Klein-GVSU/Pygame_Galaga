@@ -5,8 +5,10 @@ from player import Player
 
 class Projectile(pg.sprite.Sprite):
     def __init__(self, shipLocation, enemies):
+        # Instantiates projectile.
         super(Projectile, self).__init__()
         self.image = pg.image.load(os.path.join('galaga_student/assets', 'shot.png')).convert_alpha()
+        # Flips enemy projectiles.
         for e in enemies:
             if (isinstance(e, Player)):
                 self.image = pg.transform.flip(self.image, True, True)
@@ -16,13 +18,16 @@ class Projectile(pg.sprite.Sprite):
         self.rect.centery = shipLocation.y + 37
         self.enemies = enemies
         self.event = pg.USEREVENT + 1
+        # Grabs and plays sounds.
         self.fireSound = pg.mixer.Sound(os.path.join('galaga_student/assets', 'fire.wav'))
         self.fireSound.play()
         self.explosionSound = pg.mixer.Sound(os.path.join('galaga_student/assets', 'explosion.wav'))
 
+    # Draws projectile.
     def draw(self, screen):
         screen.blit(self.image, self.rect)
 
+    # Updates Projectile movement.
     def update(self, delta):
         for e in self.enemies:
             if (isinstance(e, Player)):
@@ -34,6 +39,7 @@ class Projectile(pg.sprite.Sprite):
                 if self.rect.x > 1024:
                     self.kill()
             break
+        # Handles projectile collision with its enemy.
         collision = pg.sprite.spritecollideany(self, self.enemies)
         if collision:
             collision.kill()

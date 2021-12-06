@@ -11,16 +11,17 @@ import pygame as pg
 class Player(pg.sprite.Sprite):
     def __init__(self):
         super(Player, self).__init__()
-        # FIXME
+        # Instantiates player.
         self.image = pg.image.load(os.path.join('galaga_student/assets', 'Ship6.png')).convert_alpha()
         self.rect = self.image.get_rect()
         self.rect.centerx = 65
         self.rect.centery = 384
         
-
+    # Draws Player
     def draw(self, screen):
         screen.blit(self.image, self.rect)
 
+    # Moves Player up.
     def up(self, delta):
         if (self.rect.centery > 0):
             if (self.rect.centery >= 5):
@@ -28,6 +29,7 @@ class Player(pg.sprite.Sprite):
             else:
                 self.rect.centery = 0
 
+    # Moves Player down.
     def down(self, delta):
         if (self.rect.centery < 768):
             if (self.rect.centery <= 763):
